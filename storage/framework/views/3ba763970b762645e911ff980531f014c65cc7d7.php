@@ -1,0 +1,1 @@
+Home<?php /**PATH E:\CTIS\resources\views/home.blade.php ENDPATH**/ ?>
