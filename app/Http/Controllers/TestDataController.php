@@ -50,10 +50,14 @@ class TestDataController extends Controller
         $user->username =  $request->username;
         $user->password = bcrypt($request->password);
         $user->remember_token = Str::random(60);
+        $user->test_centre_id = auth()->user()->test_centre_id;
         $user->save();
         
+
+        $test_centre = auth()->user()->test_centre_id;
         //insert ke test data
         $request->request->add(['user_id'=> $user->id]);
+        $request->request->add(['test_centre_id'=> $test_centre]);
         $test = \App\Test::create($request->all());
         return redirect('/testData')->with('success','Successfully record new data');
     }

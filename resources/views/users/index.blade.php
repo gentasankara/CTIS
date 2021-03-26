@@ -43,7 +43,11 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->role }}</td>
+                                            @if((\App\TestCentre::find($user->test_centre_id)) == null)
+                                            <td class="text-danger"> Test centre not exist</td>
+                                            @else
                                             <td>{{\App\TestCentre::find($user->test_centre_id)->name}}</td>
+                                            @endif
                                             <td>{{ $user->created_at }}</td>
                                             @if($user->updated_at==null)
                                                 <td>-</td>

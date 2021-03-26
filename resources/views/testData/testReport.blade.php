@@ -40,7 +40,11 @@
                                             <td>{{ $test->symptoms }}</td>
                                             <td>{{ $test->result }}</td>
                                             <td>{{ $test->status }}</td>
+                                            @if((\App\TestCentre::find($test->test_centre_id)) == null)
+                                            <td class="text-danger"> Test centre not exist</td>
+                                            @else
                                             <td>{{\App\TestCentre::find($test->test_centre_id)->name}}</td>
+                                            @endif
                                             <td>{{ $test->created_at }}</td>
                                             @if($test->updated_at==null)
                                                 <td class="text">-</td>
