@@ -30,7 +30,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' =>'required',
             'username' =>'required|unique:users',
-            'password' =>'required|min:5|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', ///at least 1 lower case, 1 uppercase and 1 number
+            'password' =>'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', ///at least 1 lower case, 1 uppercase and 1 number
             'test_centre_id' =>'required',
         ]  
         );
