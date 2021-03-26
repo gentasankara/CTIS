@@ -1,0 +1,47 @@
+.navbar-brand {
+    font-family: Viga;
+    font-size: 30px;
+}
+.navbar-brand, .nav-link {
+    color: rgb(1, 90, 131) !important;
+    font-size: 20px;
+    font-weight: 600;
+    /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); */
+}
+
+.jumbotron-fluid{
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: .3rem;
+    background-color: white !important; 
+    background-image: url('img/doctor.png')!important;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 500px;
+} 
+.jumbotron-fluid .display-4 {
+    color: rgb(0, 174, 255);
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    
+}
+
+
+/* Info */
+
+.info
+{
+   position: relative;
+   width: 100%;
+   margin: auto;
+   display: inline-block;
+   color: rgb(255, 255, 255);
+   padding-bottom: 40px;;
+   padding-top: 20px;
+}
+

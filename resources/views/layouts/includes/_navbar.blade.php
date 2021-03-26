@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="index.html"><img src="{{asset('img/logo.png')}}" alt="CTIS Logo" class="img-responsive logo " style="width:80%"></a>
+				<a href="/"><img src="{{asset('img/logo.png')}}" alt="CTIS Logo" class="img-responsive logo " style="width:80%"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
