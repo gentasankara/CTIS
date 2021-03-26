@@ -8,10 +8,15 @@
                     <div class="col-md-12 ">
                         <a href="users/newTester" class="btn btn-primary">Record New Tester</a><br>
                         @if(session('success'))
-                            <div class="alert alert-success alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <i class="fa fa-check-circle"></i> {{session('success')}}
-                            </div>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i> {{session('success')}}
+                        </div>
+                        @elseif(session('removed'))
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-info-circle"></i> {{session('removed')}}
+                        </div>   
                         @endif
                         <div class="panel">
                             <div class="panel-heading ">

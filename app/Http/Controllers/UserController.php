@@ -49,10 +49,7 @@ class UserController extends Controller
     {
         $user = \App\User::find($id);
         $user->delete($user);
-        return redirect('/users')->with('success','Data Removed');
+        return redirect('/users')->with('removed','User Account Removed');
     }
-    public function testReport()
-    {
-    
-    }
+
 }
