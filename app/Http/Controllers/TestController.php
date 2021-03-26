@@ -51,6 +51,6 @@ class TestController extends Controller
     {
         $test = \App\TestKit::find($id);
         $test->delete($test);
-        return redirect('/testKit')->with('success','Data Removed');
+        return redirect('/testKit')->with('removed','Data Removed');
     }
 }
