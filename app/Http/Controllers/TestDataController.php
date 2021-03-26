@@ -74,7 +74,7 @@ class TestDataController extends Controller
     {
         $test = \App\Test::find($id);
         $test->delete($test);
-        return redirect('/testData')->with('success','Data Removed');
+        return redirect('/testData')->with('removed','Data Removed');
     }
 
 
