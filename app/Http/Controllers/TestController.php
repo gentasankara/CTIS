@@ -14,6 +14,7 @@ class TestController extends Controller
         else
         {
             $data_test = \App\TestKit::all();
+            // dd($data_test);
         }
         $data_centre = \App\TestCentre::all();
         $title= "Test Kit Manage";

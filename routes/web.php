@@ -60,8 +60,10 @@ Route::group(['middleware'=> ['auth','checkRole:manager,tester']],function(){
 
 Route::group(['middleware'=> ['auth','checkRole:patient']],function(){
     Route::get('/patientHistory','PatientController@index');
+    Route::get('/dashboard_p','DashboardController@index');
 });
 
-Route::group(['middleware'=> ['auth','checkRole:manager,patient,tester']],function(){
-    Route::get('/dashboard','DashboardController@index');
+
+Route::group(['middleware'=> ['auth','checkRole:manager,tester']],function(){
+    Route::get('/dashboard','DashboardController@index_officer');
 });

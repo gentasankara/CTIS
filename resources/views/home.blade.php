@@ -23,7 +23,16 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link active mr-4" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link mr-4" href="/dashboard">Dashboard</a>
+            @auth
+                @if(auth()->user()->role == 'patient')
+                <a class="nav-item nav-link mr-4" href="/dashboard_p">Dashboard</a>
+                @else
+                <a class="nav-item nav-link mr-4" href="/dashboard">Dashboard</a>
+                @endif
+            @endauth
+            @guest
+                <a class="nav-item nav-link mr-4" href="/login">Login</a>
+            @endguest
             </div>
         </div>
     </div>
@@ -34,10 +43,7 @@
           <h1 class="display-4">Covid Testing<br>Information System</h1>
           <!-- <img src="img/Delivery-rafiki.png" class=" img-deliver" alt=""> -->
           <!-- <img src="img/delivery-truck.jpg" class=" img-deliver" alt=""> -->
-          <p class="pt-3">CTIS (Covid Testing Information System) is a web application that  <br> helps medical personnel  record test results for COVID-19 patients and <br>facilitate centralized digital data collection. </p>
-          <button type="button" class="btn btn-primary">
-            Read More
-          </button>           
+          <p class="pt-3">CTIS (Covid Testing Information System) is a web application that  <br> helps medical personnel  record test results for COVID-19 patients and <br>facilitate centralized digital data collection. </p>        
         </div>
     </div>
 </div>
@@ -50,7 +56,7 @@
                 <div class="row mb-5 text-dark">
                     <div class="col-lg">
                         <div class="card" style="width: 21rem;">
-                            <img class="card-img-top" src="{{asset('admin/assets/img/handwash.png')}}" alt="Card image cap">
+                            <img class="card-img-top" src="{{asset('admin/assets/img/handwash.png')}}" alt="hand washing">
                             <div class="card-body"> 
                                 <h5 class="card-title text-center">Wash Your hand</h5>
                                 <p class="card-text text-secondary text-center">Wash your hands with soap and running water regularly.</p>
@@ -59,7 +65,7 @@
                     </div>
                     <div class="col-lg">
                     <div class="card" style="width: 21rem;">
-                        <img class="card-img-top" src="{{asset('admin/assets/img/mask.png')}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('admin/assets/img/mask.png')}}" alt="Masker">
                         <div class="card-body">
                             <h5 class="card-title text-center">Use masker</h5>
                             <p class="card-text text-secondary text-center">Wear the mask properly wherever you go.</p>
@@ -68,7 +74,7 @@
                     </div>
                     <div class="col-lg ">
                     <div class="card" style="width: 21rem;">
-                        <img class="card-img-top" src="{{asset('admin/assets/img/distancing.png')}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('admin/assets/img/distancing.png')}}" alt="Distancing">
                         <div class="card-body">
                             <h5 class="card-title  text-center">Maintain a safe distance </h5>
                             <p class="card-text text-secondary text-center">Maintain a safe distance of 1.5 - 2 meters from other people.</p>
