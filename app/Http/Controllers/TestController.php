@@ -18,7 +18,7 @@ class TestController extends Controller
         }
         $data_centre = \App\TestCentre::all();
         $title= "Test Kit Manage";
-        return view('testKit.index', ['data_test' => $data_test,'data_centre'=>$data_centre, 'title' =>$title]);
+        return view('testKit.index', ['data_test' => $data_test,'data_centre'=>$data_centre, 'title' =>$title,'search_title'=>'Search test kit name..']);
     }
     public function create(Request $request)
     {

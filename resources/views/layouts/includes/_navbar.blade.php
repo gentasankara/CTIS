@@ -8,8 +8,10 @@
 		</div>
 		<form class="navbar-form navbar-left">
 			<div class="input-group">
-				<input type="text" value="" name="cari" class="form-control" placeholder="Search dashboard...">
+			@isset($search_title)
+				<input type="text" value="" name="cari" class="form-control" placeholder=" {{ $search_title }}">
 				<span class="input-group-btn"><button type="submit" class="btn btn-primary">Go</button></span>
+			@endisset
 			</div>
 		</form>
 		<div id="navbar-menu">

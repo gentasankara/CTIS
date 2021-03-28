@@ -16,7 +16,7 @@ class TestCentreController extends Controller
             $data_test = \App\TestCentre::all();
         }
         $title= "Test Centre";
-        return view('testCentre.index', ['data_test' => $data_test,'title' =>$title]);
+        return view('testCentre.index', ['data_test' => $data_test,'title' =>$title,'search_title'=>'Search test centre name..']);
     }
     public function create(Request $request)
     {
