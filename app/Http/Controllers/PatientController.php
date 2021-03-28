@@ -10,15 +10,14 @@ class PatientController extends Controller
     {
         $id = auth()->user()->id;
         if($request->has('cari')){
-            $data_test = \App\Test::where('result','LIKE','%'.$request->cari.'%')->get();
+            $data_test = \App\Test::where('id','LIKE','%'.$request->cari.'%')->get();
         }
         else
         {
-            $data_test = \App\Test::all();
+            $user= \App\User::find($id);
+            $data_test = $user->test;
         }
-        $user= \App\User::find($id);
-        $data_test = $user->test;
         $title= "Testing History";
-        return view('patient.patientHistory', ['data_test' => $data_test,'title' =>$title]);
+        return view('patient.patientHistory', ['data_test' => $data_test,'title' =>$title,'search_title'=>'Search test id..']);
     }
 }
