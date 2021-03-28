@@ -9,7 +9,7 @@
 		<form class="navbar-form navbar-left">
 			<div class="input-group">
 				<input type="text" value="" name="cari" class="form-control" placeholder="Search dashboard...">
-				<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+				<span class="input-group-btn"><button type="submit" class="btn btn-primary">Go</button></span>
 			</div>
 		</form>
 		<div id="navbar-menu">

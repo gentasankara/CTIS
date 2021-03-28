@@ -12,7 +12,7 @@ class TestDataController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')){
-            $data_test = \App\Test::where('user_id','LIKE','%'.$request->cari.'%')->get();
+            $data_test = \App\Test::where('id','LIKE','%'.$request->cari.'%')->get();
         }
         else
         {
@@ -112,7 +112,7 @@ class TestDataController extends Controller
     {
         $id = auth()->user()->id;
         if($request->has('cari')){
-            $data_test = \App\Test::where('result','LIKE','%'.$request->cari.'%')->get();
+            $data_test = \App\Test::where('id','LIKE','%'.$request->cari.'%')->get();
         }
         else
         {
