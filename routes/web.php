@@ -51,6 +51,7 @@ Route::group(['middleware'=> ['auth','checkRole:tester']],function(){
     Route::get('/testData/{id}/edit','TestDataController@edit');
     Route::post('/testData/{id}/update','TestDataController@update');
     Route::get('/testData/{id}/delete','TestDataController@delete');
+    Route::get('/testData/newPatientTest','TestDataController@newPatientTest');
 });
 
 Route::group(['middleware'=> ['auth','checkRole:manager,tester']],function(){

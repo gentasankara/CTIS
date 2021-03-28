@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class TestDataController extends Controller
 {
@@ -36,23 +37,48 @@ class TestDataController extends Controller
             'symptoms' =>'required',
             'patient_type' =>'required',
             'user_id' => 'required',
-            'test_centre_id' =>'required',
+            'test_centre_id' =>'required'
         ]  
         );
         \App\Test::create($request->all());
         return redirect('/testData')->with('success','Successfully record new data');
     }
+
+    public function newPatientTest()
+    {
+        $title= "Add new patient ";
+        return view('testData/newPatientTest',['title' =>$title,]);
+    }
     public function createPatient(Request $request)
     {
-        $user = new \App\User;
-        $user->role = 'patient';
-        $user->name = $request->name;
-        $user->username =  $request->username;
-        $user->password = bcrypt($request->password);
-        $user->remember_token = Str::random(60);
-        $user->test_centre_id = auth()->user()->test_centre_id;
-        $user->save();
+        $this->validate($request, [
+            'name' =>'required',
+            'username' =>'required|unique:users',
+            'password' =>'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', ///at least 1 lower case, 1 uppercase and 1 number
+            'symptoms' =>'required',
+            'patient_type' =>'required'
+        ]  
+        );
         
+        DB::beginTransaction();
+        try{
+            $user = new \App\User;
+            $user->role = 'patient';
+            $user->name = $request->name;
+            $user->username =  $request->username;
+            $user->password = bcrypt($request->password);
+            $user->remember_token = Str::random(60);
+            $user->test_centre_id = auth()->user()->test_centre_id;
+            $user->save();
+            
+            DB::commit();
+        } catch(\Exception $ex)
+        {
+            DB::rollBack();
+            throw $ex;            
+            return redirect('/testData/newPatientTest')->with('error','Error record new data');
+        }
+            
 
         $test_centre = auth()->user()->test_centre_id;
         //insert ke test data

@@ -20,11 +20,14 @@
                             @if(($data_test->isEmpty()))
                             <h4 class="text-center color-light"> There is no test data </h4>
                             @else
+                            <div class="table-responsive">
+                            
                                 <table class="table table-hover">
                                     <thead>
                                         <tr  class="text-center">
                                             <th>ID</th>
                                             <th>Username</th>
+                                            <th>Name</th>
                                             <th>Patient Type</th>
                                             <th>Symptoms</th>
                                             <th>Result</th>
@@ -43,6 +46,7 @@
                                             @else
                                                 <td>{{App\User::find($test->user_id)->username }}</td>
                                             @endif
+                                            <td>{{ App\User::find($test->user_id)->name }}</td>
                                             <td>{{ $test->patient_type }}</td>
                                             <td>{{ $test->symptoms }}</td>
                                             <td>{{ $test->result }}</td>
@@ -62,6 +66,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                             @endif
                             </div>
                         </div>
