@@ -21,7 +21,7 @@ class TestDataController extends Controller
         // $user= App\User::find($request->id);
         // $data_test = $user->test;
         $title= "Test Data";
-        return view('testData.index', ['data_test' => $data_test,'title' =>$title]);
+        return view('testData.index', ['data_test' => $data_test,'title' =>$title,'search_title'=>'Search test id..']);
     }
     public function newTest()
     {
@@ -119,6 +119,6 @@ class TestDataController extends Controller
             $data_test = \App\Test::all();
         }
         $title= "Testing History";
-        return view('testData.testReport', ['data_test' => $data_test,'title' =>$title]);
+        return view('testData.testReport', ['data_test' => $data_test,'title' =>$title,'search_title'=>'Search test id..']);
     }
 }

@@ -17,7 +17,7 @@ class UserController extends Controller
             $data_user = \App\User::all();
         }
         $title= "Manage User";
-        return view('users.index', ['data_user' => $data_user,'title' =>$title]);
+        return view('users.index', ['data_user' => $data_user,'title' =>$title,'search_title'=>'Search name..']);
     }
     public function newTester()
     {
