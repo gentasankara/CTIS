@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('admin/assets/style.css')}}">
-
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
     <title>Home </title>
   </head>
   <body>
@@ -55,7 +55,7 @@
                 <h2 class="text-center my-5">Simple steps to protect yourself and other from Covid-19 </h2>
                 <div class="row mb-5 text-dark">
                     <div class="col-lg">
-                        <div class="card" style="width: 21rem;">
+                        <div class="card shadow-lg" style="width: 21rem;">
                             <img class="card-img-top" src="{{asset('admin/assets/img/handwash.png')}}" alt="hand washing">
                             <div class="card-body"> 
                                 <h5 class="card-title text-center">Wash Your hand</h5>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="col-lg">
-                    <div class="card" style="width: 21rem;">
+                    <div class="card shadow-lg" style="width: 21rem;">
                         <img class="card-img-top" src="{{asset('admin/assets/img/mask.png')}}" alt="Masker">
                         <div class="card-body">
                             <h5 class="card-title text-center">Use masker</h5>
@@ -73,7 +73,7 @@
                     </div>
                     </div>
                     <div class="col-lg ">
-                    <div class="card" style="width: 21rem;">
+                    <div class="card shadow-lg" style="width: 21rem;">
                         <img class="card-img-top" src="{{asset('admin/assets/img/distancing.png')}}" alt="Distancing">
                         <div class="card-body">
                             <h5 class="card-title  text-center">Maintain a safe distance </h5>

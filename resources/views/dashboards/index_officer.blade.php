@@ -7,7 +7,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Welcome to Dashboard</h3>
-                    <p class="panel-subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                    <p class="panel-subtitle">This is your dashboard. You can access the CTIS menu here.</p>
                 </div>
                 <div class="panel-body">
                     <div class="row">

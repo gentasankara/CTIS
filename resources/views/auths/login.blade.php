@@ -33,6 +33,12 @@
 								<div class="logo text-center"><img src="{{asset('img/logo.png')}}" alt="Klorofil Logo"></div>
 								<p class="lead">Login to your account</p>
 							</div>
+							@if(session('alert'))
+							<div class="alert alert-danger alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+								<i class="fa fa-times-circle"></i> {{session('alert')}}
+							</div>
+							@endif	
 							<form class="form-auth-small" action="/postlogin" method="POST">
                             {{csrf_field()}}
 								<div class="form-group">
@@ -42,12 +48,6 @@
 								<div class="form-group">
 									<label for="password" class="control-label sr-only">Password</label>
 									<input name="password" type="password" class="form-control" id="password" value="" placeholder="Password">
-								</div>
-								<div class="form-group clearfix">
-									<label class="fancy-checkbox element-left">
-										<input type="checkbox">
-										<span>Remember me</span>
-									</label>
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
 							</form>
@@ -67,5 +67,9 @@
 	</div>
 	<!-- END WRAPPER -->
 </body>
-
+<!-- Javascript -->
+<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+	<script src="{{asset('admin/assets/scripts/klorofil-common.js')}}"></script>
 </html>
