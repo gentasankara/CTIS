@@ -27,6 +27,7 @@
                                 <h2 class="panel-title text-center">Test Records</h2>
                             </div>
                             <div class="panel-body">
+                            <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr  class="text-center">
@@ -52,6 +53,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>

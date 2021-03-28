@@ -2,6 +2,12 @@
 @section('content')
     <div class="main">
         <div class="main-content">
+        <form class="navbar-form">
+			<div class="input-group">
+				<input type="text" value="" name="cari" class="form-control" placeholder="Search dashboard...">
+				<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+			</div>
+		</form>
             <div class="container-fluid">
                 @if(session('success'))
                 <div class="alert alert-success alert-dismissible" role="alert">
@@ -28,7 +34,8 @@
                             @if(($data_test->isEmpty()))
                             <h4 class="text-center color-light"> There is no test data </h4>
                             @else
-                                <table class="table table-hover">
+                            <div class="table-responsive">
+                                <table class="table  table-hover">
                                     <thead>
                                         <tr  class="text-center">
                                             <th>ID</th>
@@ -69,6 +76,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                             @endif
                             </div>
                         </div>

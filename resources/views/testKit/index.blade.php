@@ -30,41 +30,43 @@
                             @if(($data_test->isEmpty()))
                             <h4 class="text-center color-light"> There is no test kit data </h4>
                             @else
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>Kit ID</th>
-                                        <th>Test Kit Name</th>
-                                        <th>Test Centre</th>
-                                        <th>Stock</th>
-                                        <th>Created at</th>
-                                        <th>Update at</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($data_test as $test)
-                                    <tr>
-                                        <td>{{ $test->id }}</td>
-                                        <td>{{ $test->kitName }}</td>
-                                        @if((\App\TestCentre::find($test->test_centre_id)) == null) 
-                                            <td class="text"> - </td>
-                                        @else
-                                            <td>{{\App\TestCentre::find($test->test_centre_id)->name}}</td>
-                                        @endif
-                                        <td>{{ $test->stock }}</td>
-                                        <td>{{ $test->created_at }}</td>
-                                        @if($test->updated_at==null)
-                                            <td class="text">-</td>
-                                        @else
-                                            <td>{{ $test->updated_at }}</td>
-                                        @endif
-                                        <td><a href="/testKit/{{$test->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/testKit/{{$test->id}}/delete" class="btn btn-danger btn-sm" onClick="return confirm('Do you want to delete this data ?')">Delete</a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>Kit ID</th>
+                                            <th>Test Kit Name</th>
+                                            <th>Test Centre</th>
+                                            <th>Stock</th>
+                                            <th>Created at</th>
+                                            <th>Update at</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($data_test as $test)
+                                        <tr>
+                                            <td>{{ $test->id }}</td>
+                                            <td>{{ $test->kitName }}</td>
+                                            @if((\App\TestCentre::find($test->test_centre_id)) == null) 
+                                                <td class="text"> - </td>
+                                            @else
+                                                <td>{{\App\TestCentre::find($test->test_centre_id)->name}}</td>
+                                            @endif
+                                            <td>{{ $test->stock }}</td>
+                                            <td>{{ $test->created_at }}</td>
+                                            @if($test->updated_at==null)
+                                                <td class="text">-</td>
+                                            @else
+                                                <td>{{ $test->updated_at }}</td>
+                                            @endif
+                                            <td><a href="/testKit/{{$test->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="/testKit/{{$test->id}}/delete" class="btn btn-danger btn-sm" onClick="return confirm('Do you want to delete this data ?')">Delete</a></td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>                         
+                            </div>
                             @endif
                             </div>
                         </div>
