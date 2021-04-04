@@ -15,7 +15,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             @endif
-                            <h3 class="panel-title">Record Tester</h3>
+                            <h3 class="panel-title">Record Patient</h3>
                             @if(session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{session('success')}}
