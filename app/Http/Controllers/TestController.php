@@ -16,7 +16,9 @@ class TestController extends Controller
             $data_test = \App\TestKit::all();
             // dd($data_test);
         }
-        $data_centre = \App\TestCentre::all();
+        $data_centre = \App\TestCentre::where([
+            ['status','=','1']
+            ])->get();
         $title= "Test Kit Manage";
         return view('testKit.index', ['data_test' => $data_test,'data_centre'=>$data_centre, 'title' =>$title,'search_title'=>'Search test kit name..']);
     }

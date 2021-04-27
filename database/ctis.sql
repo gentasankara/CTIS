@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 04.07
+-- Waktu pembuatan: 27 Apr 2021 pada 11.04
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.31
 
@@ -79,17 +79,18 @@ CREATE TABLE `test_centre` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT NULL
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `test_centre`
 --
 
-INSERT INTO `test_centre` (`id`, `name`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'Rumah Sakit', 'Jl P Bali', '2021-03-25 09:22:53', '2021-03-25 01:22:53'),
-(4, 'Klinik Tong Fang', 'Jalan Pulau Pulau', '2021-03-28 01:41:50', '2021-03-28 01:41:50');
+INSERT INTO `test_centre` (`id`, `name`, `address`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Rumah Sakit', 'Jl P Bali', 1, '2021-04-27 08:49:00', '2021-04-27 09:04:44'),
+(4, 'Klinik Tong Fang', 'Jalan Pulau Rimba', 0, '2021-04-27 08:54:04', '2021-04-27 09:02:01');
 
 -- --------------------------------------------------------
 
@@ -163,9 +164,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `name`, `username`, `test_centre_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'manager', 'admin', 'admin', 1, NULL, '$2y$10$dArOlJ/C51HVAqIIBlNbyul7aUfan2NA7sVYeUkHjtYXhUuIh2Wma', 'YUgiMCpaa1nhHCWezYMU0hWaF8hDtOTfaG5WEpYpb5jSdIClDc13RvvpoJQ9', '2021-03-22 05:05:29', '2021-03-22 05:05:29'),
+(1, 'manager', 'admin', 'admin', 1, NULL, '$2y$10$dArOlJ/C51HVAqIIBlNbyul7aUfan2NA7sVYeUkHjtYXhUuIh2Wma', 'vaZ2UvlWyxLhF2JhTOPpG8lPH65BoOi3U7d3dHlrn8cWzPxvq92rkyt4tzBm', '2021-03-22 05:05:29', '2021-03-22 05:05:29'),
 (7, 'patient', 'Rukma', 'rukma', 1, NULL, '$2y$10$jodVXq0De2uvL.2mHOvkweAXOb1oNiTdl1COy4jYbjo5cc43Vfjb.', '1nbNeOrKNX8ez4N9sRmVhL5oPPftO6U8fw54OiQdTA9MEEw5Wkfys2JUQ1I4', '2021-03-22 18:05:30', '2021-03-22 18:05:30'),
-(11, 'tester', 'Tester2', 'tester2', 1, NULL, '$2y$10$hymWRJKV6rVaV/Yk2PG5z.qg8ob/5AAnXg5GrR6ztxe.gO325duk2', 'vBVmx351dsYUq4CQbhitZ5mCmmyJG6A5UkaXESrpD3YCpErNcxbBJMct6L3B', '2021-03-25 01:41:00', '2021-03-25 01:41:00'),
+(11, 'tester', 'Tester2', 'tester2', 1, NULL, '$2y$10$hymWRJKV6rVaV/Yk2PG5z.qg8ob/5AAnXg5GrR6ztxe.gO325duk2', 'I5UD4UuvjvN51FdmRzzJBy3hiGeRDjWCDRliYdDZxJYXhivU1rKuhtdHexDw', '2021-03-25 01:41:00', '2021-03-25 01:41:00'),
 (15, 'patient', 'Geo Rama Bujangga', 'georama', 1, NULL, '$2y$10$7OryJdY.KTeIBOMY5IHR8ehCONdmhNsbaX/SemRGGEztm2a5Qr0di', 'EVpEjUoPDzyJwOVQ8BaZBRS2Yw2vGKSyYlJpH8euMkY3QNdZ6RDjwbhweOfz', '2021-03-28 01:43:16', '2021-03-28 01:43:16');
 
 --

@@ -34,6 +34,7 @@
                                             <th>ID</th>
                                             <th>Test Centre Name</th>
                                             <th>Address</th>
+                                            <th>Status</th>
                                             <th>Created at</th>
                                             <th>Updated at</th>
                                             <th>Action</th>
@@ -45,10 +46,16 @@
                                             <td>{{ $test->id }}</td>
                                             <td>{{ $test->name }}</td>
                                             <td>{{ $test->address}}</td>
+                                            @if($test->status == 1)     
+                                            <td class="text-success "><strong>Active</strong></td>
+                                            @else
+                                            <td class="text-danger "><strong>Non-active</strong></td>
+                                            @endif
                                             <td>{{ $test->created_at }}</td>
                                             <td>{{ $test->updated_at}} </td>
                                             <td><a href="/testCentre/{{$test->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="/testCentre/{{$test->id}}/delete" class="btn btn-danger btn-sm" onClick="return confirm('Do you want to delete this data ?')">Delete</a></td>
+                                            <a href="/testCentre/{{$test->id}}/enable" class="btn btn-success btn-sm" onClick="return confirm('Do you want to enable this centre ?')">Enable</a>
+                                            <a href="/testCentre/{{$test->id}}/disable" class="btn btn-danger btn-sm" onClick="return confirm('Do you want to disable this centre ?')">Disable</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -20,8 +20,10 @@ class TestDataController extends Controller
         }
         // $user= App\User::find($request->id);
         // $data_test = $user->test;
+        $test_centre_id = auth()->user()->test_centre_id;
+        $data_centre = \App\TestCentre::where('id', $test_centre_id)->first();
         $title= "Test Data";
-        return view('testData.index', ['data_test' => $data_test,'title' =>$title,'search_title'=>'Search test id..']);
+        return view('testData.index', ['data_test' => $data_test,'data_centre'=>$data_centre, 'title' =>$title,'search_title'=>'Search test id..']);
     }
     public function newTest()
     {

@@ -39,7 +39,8 @@ Route::group(['middleware'=> ['auth','checkRole:manager']],function(){
     Route::post('/testCentre/create','TestCentreController@create');
     Route::get('/testCentre/{id}/edit','TestCentreController@edit');
     Route::post('/testCentre/{id}/update','TestCentreController@update');
-    Route::get('/testCentre/{id}/delete','TestCentreController@delete');
+    Route::get('/testCentre/{id}/enable','TestCentreController@enable');
+    Route::get('/testCentre/{id}/disable','TestCentreController@disable');
 });
 
 

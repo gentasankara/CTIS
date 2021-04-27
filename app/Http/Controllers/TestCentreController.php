@@ -47,10 +47,19 @@ class TestCentreController extends Controller
         $test->update($request->all());
         return  redirect('/testCentre')->with('success','Successfully update the data');
     }
-    public function delete($id)
+    
+    public function enable($id)
     {
         $test = \App\TestCentre::find($id);
-        $test->delete($test);
-        return redirect('/testCentre')->with('removed','Data Removed');
+        $test->status = '1';
+        $test->save();
+        return redirect('/testCentre')->with('removed','Test Centre enabled');
+    }
+    public function disable($id)
+    {
+        $test = \App\TestCentre::find($id);
+        $test->status = '0';
+        $test->save();
+        return redirect('/testCentre')->with('removed','Test Centre Disabled');
     }
 }

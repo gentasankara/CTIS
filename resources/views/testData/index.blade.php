@@ -17,7 +17,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="float-right">
+                        @if($data_centre->status == 1)
                             <a href="testData/newTest" class="btn btn-primary">Add new record</a>
+                        @else
+                            <a href="" class="btn btn-primary" disabled>Your test centre is disabled</a>
+                        @endif
                         </div>
                         <div class="panel">
                             <div class="panel-heading ">
@@ -29,9 +33,9 @@
                             <h4 class="text-center color-light"> There is no test data </h4>
                             @else
                             <div class="table-responsive">
-                                <table class="table  table-hover">
+                                <table class="table table-hover">
                                     <thead>
-                                        <tr  class="text-center">
+                                        <tr class="text-center">
                                             <th>ID</th>
                                             <th>Username</th>
                                             <th>Patient Type</th>

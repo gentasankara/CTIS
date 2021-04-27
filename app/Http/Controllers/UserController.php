@@ -22,7 +22,9 @@ class UserController extends Controller
     public function newTester()
     {
         $title= "Add User ";
-        $data_centre = \App\TestCentre::all();
+        $data_centre = \App\TestCentre::where([
+            ['status','=','1']
+            ])->get();
         return view('users/newTester',['title' =>$title,'data_centre'=>$data_centre]);
     }
     public function addTester(Request $request)
