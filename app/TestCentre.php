@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TestCentre extends Model
 {
     protected $table = 'test_centre';
-    protected $fillable = ['name','address'];
+    protected $fillable = ['name','status','address'];
 
 
     public function user()

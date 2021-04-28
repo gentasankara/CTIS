@@ -23,7 +23,7 @@ class TestCentreController extends Controller
         $this->validate($request, [
             'name' =>'required|min:3',
             'address' =>'required|min:3'
-        ]  
+        ]
         );
         \App\TestCentre::create($request->all());
         return redirect('/testCentre')->with('success','Successfully register test centre');
@@ -37,17 +37,17 @@ class TestCentreController extends Controller
         return view('testCentre/edit',['test' => $test, 'title' =>$title]);
     }
     public function update(Request $request, $id)
-    {   
+    {
         $this->validate($request, [
             'name' =>'required',
             'address' =>'required'
-        ]  
+        ]
         );
         $test = \App\TestCentre::find($id);
         $test->update($request->all());
         return  redirect('/testCentre')->with('success','Successfully update the data');
     }
-    
+
     public function enable($id)
     {
         $test = \App\TestCentre::find($id);

@@ -46,7 +46,7 @@
                                             <td>{{ $test->id }}</td>
                                             <td>{{ $test->name }}</td>
                                             <td>{{ $test->address}}</td>
-                                            @if($test->status == 1)     
+                                            @if($test->status == 1)
                                             <td class="text-success "><strong>Active</strong></td>
                                             @else
                                             <td class="text-danger "><strong>Non-active</strong></td>
@@ -82,6 +82,7 @@
                 <form action="/testCentre/create" method="POST">
                 {{csrf_field() }}
                     <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+                    	<input type="hidden" name="status" class="form-control" id="status" value="1">
                         <label for="name" class="form-label">Test Centre Name</label>
                         <input type="text" name="name" class="form-control" id="name" value="{{old('name')}}" required>
                         @if ($errors->has('name'))
