@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     protected $table = 'test_data';
-    protected $fillable = ['user_id','patient_type','symptoms','result','status','test_centre_id'];
+    protected $fillable = ['user_id','tester_id','patient_type','symptoms','result','status','test_centre_id'];
     protected $attributes = [
         'status' => "Pending",
     ];

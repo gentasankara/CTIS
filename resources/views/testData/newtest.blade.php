@@ -21,8 +21,9 @@
                         </div>
                         <div class="panel-body">
                             <form action="/testData/recordTest" method="POST">
-                                {{csrf_field() }}
-                                <label for="test_centre">Test Centre</label>
+                                {{csrf_field()}}
+                                <label for="test_centre">Test Centre</label> 
+                                <input type="hidden" name="tester_id" class="form-control" value="{{$tester_id}}">
                                 <input type="hidden" name="test_centre_id" class="form-control" value="{{$data_centre->id}}">
                                 <input type="text" disabled="" name="name_centre" class="form-control" value="{{$data_centre->name}}"><br>
                                 
@@ -60,7 +61,6 @@
                                     @endif
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
                             </form>   
@@ -146,7 +146,7 @@ $("#patient").select2( {
  allowClear: true,
  "language": {
        "noResults": function(){
-           return "No Results Found <a href='#' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'> Add new patient</a>";
+           return "No Results Found. Please add new patient.";
        }
    },
    escapeMarkup: function (markup) {

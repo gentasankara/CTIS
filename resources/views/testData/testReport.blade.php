@@ -27,6 +27,7 @@
                                         <tr  class="text-center">
                                             <th>ID</th>
                                             <th>Username</th>
+                                            <th>Tester Name</th>
                                             <th>Name</th>
                                             <th>Patient Type</th>
                                             <th>Symptoms</th>
@@ -46,6 +47,7 @@
                                             @else
                                                 <td>{{App\User::find($test->user_id)->username }}</td>
                                             @endif
+                                            <td>{{ App\User::find($test->tester_id)->name}}</td>
                                             <td>{{ App\User::find($test->user_id)->name }}</td>
                                             <td>{{ $test->patient_type }}</td>
                                             <td>{{ $test->symptoms }}</td>

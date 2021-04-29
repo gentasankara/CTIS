@@ -11,27 +11,27 @@ class TestDataController extends Controller
 {
     public function index(Request $request)
     {
+        $test_centre_id = auth()->user()->test_centre_id;
         if($request->has('cari')){
             $data_test = \App\Test::where('id','LIKE','%'.$request->cari.'%')->get();
         }
         else
         {
-            $data_test = \App\Test::all();
+            $data_test = \App\Test::where('test_centre_id', $test_centre_id)->get();
         }
         // $user= App\User::find($request->id);
-        // $data_test = $user->test;
-        $test_centre_id = auth()->user()->test_centre_id;
         $data_centre = \App\TestCentre::where('id', $test_centre_id)->first();
         $title= "Test Data";
         return view('testData.index', ['data_test' => $data_test,'data_centre'=>$data_centre, 'title' =>$title,'search_title'=>'Search test id..']);
     }
     public function newTest()
     {
+        $tester_id = auth()->user()->id;
         $test_centre_id = auth()->user()->test_centre_id;
         $title= "Add new record ";
         $data_user = \App\User::where('role','patient')->where('test_centre_id', $test_centre_id)->get();
         $data_centre = \App\TestCentre::where('id', $test_centre_id)->first();
-        return view('testData/newTest',['data_user' => $data_user, 'data_centre'=>$data_centre,'title' =>$title]);
+        return view('testData/newTest',['data_user' => $data_user, 'tester_id'=>$tester_id, 'data_centre'=>$data_centre,'title' =>$title]);
     }
     public function recordTest(Request $request)
     {
@@ -39,6 +39,7 @@ class TestDataController extends Controller
             'symptoms' =>'required',
             'patient_type' =>'required',
             'user_id' => 'required',
+            'tester_id' => 'required',
             'test_centre_id' =>'required'
         ]  
         );
@@ -81,9 +82,10 @@ class TestDataController extends Controller
             return redirect('/testData/newPatientTest')->with('error','Error record new data');
         }
             
-
+        $tester_id = auth()->user()->id;
         $test_centre = auth()->user()->test_centre_id;
         //insert ke test data
+        $request->request->add(['tester_id'=> $tester_id]);
         $request->request->add(['user_id'=> $user->id]);
         $request->request->add(['test_centre_id'=> $test_centre]);
         $test = \App\Test::create($request->all());
